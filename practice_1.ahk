@@ -11,3 +11,21 @@ return
 LCtrl::
 Send, AutoHotkey
 return
+
+BinarySearch(array, value) {
+    left := 1
+    right := array.Length()
+    
+    while left <= right {
+        middle := (left + right) // 2
+        if array[middle] < value {
+            left := middle + 1
+        } else if array[middle] > value {
+            right := middle - 1
+        } else {
+            return middle
+        }
+    }
+    
+    return -1
+}
